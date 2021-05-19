@@ -1,0 +1,25 @@
+.spacing {
+  margin-top: 16px;
+}
+
+p {
+  font-family: 'Indie Flower', cursive;
+  font-size: 32px; text-shadow: 4px 4px 4px #aaa;
+  line-height: 48px;
+}
+
+.jumbotron {
+  min-height: 200px;
+  background: orange;
+}
+
+img {
+  border-radius: 12px;
+  border: orange 12px;
+
+}
+
+button {
+  transform: scale(1.2);
+  border-radius: 12px;
+}

@@ -1,0 +1,29 @@
+<div class="jumbotron" mat-app-background>
+    <div>
+      <p>Bad Day? Bad Vibes??</p>
+      <p>Click Generate to brighten your mood :)</p>
+    </div>
+</div>
+
+<div fxLayout="column wrap" fxLayoutAlign="center center">
+
+    <div class="spacing" fxFlex>
+      <mat-spinner *ngIf="loading">
+        <span>Fetching</span>
+      </mat-spinner>
+
+      <div *ngIf="cat.webpurl">
+        <img *ngIf="!loading" src="{{cat.webpurl}}" alt="random cat" height="100%" width="75%">
+        <p></p>
+        <p *ngIf="!loading">Did that brighten you up ??</p>
+      </div>
+    </div>
+
+    <div class="spacing" fxFlex>
+      <button (click)="getRandomCat()"  mat-raised-button color="primary">Generate ! !</button>
+    </div>
+    <p></p>
+    <p></p>
+
+
+</div>
