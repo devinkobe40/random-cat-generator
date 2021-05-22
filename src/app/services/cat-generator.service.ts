@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { catchError } from 'rxjs/operators';
 
 import { GenerateRandomCat } from '../interfaces/generate-random-cat';
 import { Product } from '../interfaces/product';
+
+import { ErrorHandlingService } from './error-handling.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,7 @@ export class CatGeneratorService {
                 .set('Access-Control-Allow-Credentials', 'true');
   constructor(
     private http: HttpClient,
+    private errorHandlingService: ErrorHandlingService
   ) { }
 
 
@@ -29,7 +32,10 @@ export class CatGeneratorService {
   getRandomCat(): Observable<GenerateRandomCat> {
     const url = "https://thatcopy.pw/catapi/rest/";
 
-    return this.http.get<GenerateRandomCat>(url);
+    return this.http.get<GenerateRandomCat>(url)
+    .pipe(
+      catchError(this.errorHandlingService.handleError)
+    );
   }
 
   // getRandomGifCat(): void{

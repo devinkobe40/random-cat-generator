@@ -11,11 +11,13 @@
       <mat-spinner *ngIf="loading">
         <span>Fetching</span>
       </mat-spinner>
-
+      <p *ngIf="errorMsg.length > 0">Error: {{errorMsg}}</p>
       <div *ngIf="cat.webpurl">
-        <img *ngIf="!loading" src="{{cat.webpurl}}" alt="random cat" height="100%" width="75%">
-        <p></p>
-        <p *ngIf="!loading">Did that brighten you up ??</p>
+        <div class="container">
+          <img *ngIf="!loading" src="{{cat.webpurl}}" alt="random cat" height="100%" width="100%">
+          <p></p>
+          <p class="text-center" *ngIf="!loading">Did that brighten you up ??</p>
+        </div>
       </div>
     </div>
 
