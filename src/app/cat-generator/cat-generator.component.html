@@ -14,9 +14,9 @@
       <p *ngIf="errorMsg.length > 0">Error: {{errorMsg}}</p>
       <div *ngIf="cat.webpurl">
         <div class="container">
-          <img *ngIf="!loading" src="{{cat.webpurl}}" alt="random cat" height="100%" width="100%">
+          <img *ngIf="!loading" loading="lazy" src="{{cat.webpurl}}" alt="random cat" height="100%" width="100%">
           <p></p>
-          <p class="text-center" *ngIf="!loading">Did that brighten you up ??</p>
+          <p class="text-center" *ngIf="success_msg">Did that brighten you up ??</p>
         </div>
       </div>
     </div>

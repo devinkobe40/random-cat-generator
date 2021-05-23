@@ -32,6 +32,7 @@ export class CatGeneratorComponent implements OnInit {
   loading = false;
   product = {} as Product;
   errorMsg: string = "";
+  success_msg = false;
 
   constructor(
     private catService: CatGeneratorService
@@ -55,6 +56,7 @@ export class CatGeneratorComponent implements OnInit {
     // show loading bar when fetching
     this.loading = true;
     this.errorMsg = "";
+    this.success_msg = false;
 
     this.catService.getRandomCat().subscribe(
       (cat) => {
@@ -73,6 +75,13 @@ export class CatGeneratorComponent implements OnInit {
         // loading state will be false
         this.loading = false;
         console.log("Error", this.errorMsg);
+
+      },
+      () => {
+        setTimeout(() => {
+          this.success_msg = true;
+          console.log("msg");
+        }, 2000);
 
       }
     );
