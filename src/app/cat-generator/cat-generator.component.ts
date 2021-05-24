@@ -4,6 +4,10 @@ import { CatGeneratorService } from '../services/cat-generator.service';
 
 import { Product } from '../interfaces/product';
 import { GenerateRandomCat } from '../interfaces/generate-random-cat';
+
+// Font Awesome
+import { faCat } from '@fortawesome/free-solid-svg-icons';
+
 // import {
 //   trigger,
 //   state,
@@ -33,14 +37,15 @@ export class CatGeneratorComponent implements OnInit {
   product = {} as Product;
   errorMsg: string = "";
   success_msg = false;
+  faCat = faCat;
+
+  scrollElem: any = "";
 
   constructor(
     private catService: CatGeneratorService
   ) { }
 
   ngOnInit(): void {
-    console.log("cat ",this.cat);
-
     // this.catService.getProduct().subscribe(
     //   (product) => {
     //     this.product = product;
@@ -52,6 +57,7 @@ export class CatGeneratorComponent implements OnInit {
 
   getRandomCat(): void {
     console.log("generating...");
+    this.scrollElem = document.querySelector('#image');
 
     // show loading bar when fetching
     this.loading = true;
@@ -61,7 +67,8 @@ export class CatGeneratorComponent implements OnInit {
     this.catService.getRandomCat().subscribe(
       (cat) => {
         this.cat = cat;
-        console.log("Cat URL: ", this.cat);
+
+        this.scrollElem.scrollIntoView();
 
         // after finishing fetching the data
         // loading state will be false
@@ -75,13 +82,6 @@ export class CatGeneratorComponent implements OnInit {
         // loading state will be false
         this.loading = false;
         console.log("Error", this.errorMsg);
-
-      },
-      () => {
-        setTimeout(() => {
-          this.success_msg = true;
-          console.log("msg");
-        }, 2000);
 
       }
     );

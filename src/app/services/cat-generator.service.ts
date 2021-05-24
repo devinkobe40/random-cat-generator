@@ -13,21 +13,21 @@ import { ErrorHandlingService } from './error-handling.service';
 })
 export class CatGeneratorService {
 
-  headers = new HttpHeaders()
-                .set('Content-Type', '*/*')
-                .set('Access-Control-Allow-Origin', 'http://localhost:4200/')
-                .set('Access-Control-Allow-Credentials', 'true');
+  // headers = new HttpHeaders()
+  //               .set('Content-Type', '*/*')
+  //               .set('Access-Control-Allow-Origin', 'http://localhost:4200/')
+  //               .set('Access-Control-Allow-Credentials', 'true');
   constructor(
     private http: HttpClient,
     private errorHandlingService: ErrorHandlingService
   ) { }
 
 
-  getProduct(): Observable<Product> {
-    const url = "http://localhost:8080/api/products";
-
-    return this.http.get<Product>(url);
-  }
+  // getProduct(): Observable<Product> {
+  //   const url = "http://localhost:8080/api/products";
+  //
+  //   return this.http.get<Product>(url);
+  // }
 
   getRandomCat(): Observable<GenerateRandomCat> {
     const url = "https://thatcopy.pw/catapi/rest/";

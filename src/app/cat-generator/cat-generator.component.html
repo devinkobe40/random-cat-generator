@@ -1,5 +1,6 @@
 <div class="jumbotron" mat-app-background>
-    <div>
+    <div class="text-center">
+      <br><br>
       <p>Bad Day? Bad Vibes??</p>
       <p>Click Generate to brighten your mood :)</p>
     </div>
@@ -14,15 +15,20 @@
       <p *ngIf="errorMsg.length > 0">Error: {{errorMsg}}</p>
       <div *ngIf="cat.webpurl">
         <div class="container">
-          <img *ngIf="!loading" loading="lazy" src="{{cat.webpurl}}" alt="random cat" height="100%" width="100%">
+          <img *ngIf="!loading" src="{{cat.webpurl}}" alt="random cat" height="80%" width="100%">
           <p></p>
-          <p class="text-center" *ngIf="success_msg">Did that brighten you up ??</p>
         </div>
       </div>
     </div>
 
     <div class="spacing" fxFlex>
-      <button (click)="getRandomCat()"  mat-raised-button color="primary">Generate ! !</button>
+      <span id="image"></span>
+      <button (click)="getRandomCat()"  mat-raised-button color="primary">
+        <fa-icon [icon]="faCat"> </fa-icon>
+        <span>
+          Generate ! !
+        </span>
+      </button>
     </div>
     <p></p>
     <p></p>

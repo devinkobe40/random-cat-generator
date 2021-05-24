@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CatGeneratorComponent } from './cat-generator/cat-generator.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CatGeneratorComponent } from './cat-generator/cat-generator.component';
     FlexLayoutModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
